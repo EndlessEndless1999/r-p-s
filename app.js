@@ -14,7 +14,8 @@ function restart(){
 }
 
 function startGame(){
-    let choices = ['Rock', 'Paper', 'Scissors'];
+let choices = ['Rock', 'Paper', 'Scissors'];
+
 let computerChoice = choices[Math.floor(Math.random()* choices.length)];
 let winningAnswer;
 let losingAnswer; 
@@ -27,9 +28,11 @@ switch(computerChoice){
     case 'Paper':
         winningAnswer = 'Scissors'
         losingAnswer = 'Rock'
+        break;
     case 'Scissors':
         winningAnswer = 'Rock'
         losingAnswer = 'Paper'
+        break;
 }
 
 inquirer.prompt([
@@ -41,13 +44,16 @@ inquirer.prompt([
     }
 ]).then((answers) => {
     if (answers.start === winningAnswer){
+        console.log(`Computer chose......${computerChoice}`)
         console.log('YOU WIN!')
         restart();
     }else if (answers.start === losingAnswer){
+        console.log(`Computer chose......${computerChoice}`)
         console.log('YOU LOSE')
         restart();
     }
         else {
+        console.log(`Computer chose......${computerChoice}`)
         console.log('DRAW. REPLAY!');
         startGame();
     }
